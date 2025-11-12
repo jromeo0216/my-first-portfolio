@@ -1,0 +1,16 @@
+{
+          "name": "my-first-portfolio",
+          "version": "1.0.0",
+          "description": "My first portfolio site with Netlify Functions",
+          "main": "script.js", // This might not be strictly needed for functions but good practice
+          "scripts": {
+            "test": "echo \"Error: no test specified\" && exit 1"
+            // You don't need a "build" script for functions unless your site needs one.
+          },
+          "keywords": [],
+          "author": "",
+          "license": "ISC",
+          "dependencies": {
+            "@netlify/neon": "^1.0.0" // Make sure this is here! Use the latest version.
+          }
+        }

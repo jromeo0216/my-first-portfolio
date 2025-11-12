@@ -1,0 +1,1733 @@
+/* ======================= Text-Style / Compact Theme for Chrome Extension (2D/Text Based) - DARK THEME ======================= */
+:root {
+    /* Color Palette - Subtle & Text-Focused (Dark) */
+    --primary-text: #e0e0e0; /* Light grey for primary text */
+    --secondary-text: #90a4ae; /* Muted blue-grey for secondary info */
+    --accent-blue: #42a5f5; /* Bright blue for strong accents/active states */
+    --light-blue: #90caf9; /* Lighter pastel blue for subtle highlights */
+    --background-subtle: #212121; /* Dark grey for general background */
+    --surface-light: #2c2c2c; /* Slightly lighter dark grey for subtle card-like surfaces */
+    --border-light: #424242; /* Darker, almost invisible border */
+    --success-color: #66bb6a; /* Soft green */
+    --danger-color: #ef5350; /* Soft red */
+    --warning-color: #ffb74d; /* Soft orange */
+    --shadow-subtle: transparent; /* Shadows removed for 2D/text */
+    --shadow-medium: transparent; /* Shadows removed for 2D/text */
+}
+
+/* ----------------------- Global Styles (Body & Container) ----------------------- */
+body {
+    font-family: 'Inter', 'Segoe UI', 'Arial', sans-serif;
+    margin: 0;
+    padding: 10px; /* Reduced padding for compact text-based */
+    background: url('images/bg.png') no-repeat center center fixed; /* Assuming bg.png is now a dark background image */
+    background-size: cover;
+    color: var(--primary-text);
+    line-height: 1.4; /* Tighter line height */
+    font-size: 1.2em; /* Smaller base font size */
+    max-width: 550px; /* Even more compact width */
+    min-height: 100px;
+    max-height: 500px;
+    overflow-y: auto;
+    text-align: left;
+    box-sizing: border-box;
+    border-radius: 0; /* No border-radius for strict 2D */
+    box-shadow: none; /* No shadows */
+    transition: none; /* No transitions */
+}
+
+.marketplace-container {
+    max-width: 100%;
+    margin: 0;
+    background-color: transparent;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+    display: flex;
+    gap: 20px; /* Reduced gap */
+    flex-wrap: nowrap;
+}
+
+/* ----------------------- Header ----------------------- */
+header {
+    text-align: left;
+    margin-bottom: 8px; /* Reduced margin */
+    padding-bottom: 5px;
+    width: 50%;
+}
+
+h1 {
+    font-size: 1.2em; /* Smaller H1 */
+    margin: 0;
+    font-weight: 700;
+    color: var(--accent-blue);
+    text-transform: none;
+    letter-spacing: 0.3px; /* Softer letter spacing */
+    line-height: 1.1;
+}
+
+h1 .date, h1 .time {
+    font-size: 0.6em;
+    color: var(--secondary-text);
+    display: inline;
+    margin-left: 6px;
+    font-weight: 400;
+    letter-spacing: 0.1px;
+}
+
+/* ----------------------- Login Section ----------------------- */
+.login-section {
+    display: flex;
+    margin-top: 6px;
+    margin-bottom: 10px;
+    gap: 4px;
+    padding: 8px 0; /* Reduced padding, no horizontal for text-based */
+    background-color: transparent; /* No background */
+    z-index: 99;
+    margin-left: 0; /* Match body padding */
+    margin-right: 0; /* Match body padding */
+    width: auto;
+    box-shadow: none; /* No shadow */
+    border-radius: 0;
+}
+
+.login-section label {
+    font-size: 0.65em; /* Smaller label font */
+    color: var(--secondary-text);
+    font-weight: 500;
+}
+
+.login-section input[type="password"]:focus {
+    border-color: var(--accent-blue);
+    outline: none;
+    box-shadow: none; /* No shadow on focus */
+}
+
+.login-actions {
+    display: inline-flex;
+    gap: 4px; /* Reduced gap */
+}
+
+/* ----------------------- Vendor Section ----------------------- */
+.vendor-section {
+    margin-top: 6px;
+    margin-bottom: 10px;
+    padding: 0;
+    background-color: transparent; /* No background */
+    border-radius: 0;
+    box-shadow: none; /* No shadow */
+    transition: none;
+    max-height: auto;
+    border: none; /* No border for 2D */
+}
+
+.vendor-section:hover {
+    box-shadow: none; /* No shadow on hover */
+}
+
+.vendor-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 0; /* Reduced padding */
+    border-bottom: 1px solid var(--border-light); /* Only bottom border */
+    cursor: pointer;
+    font-size: 0.85em; /* Smaller font */
+    background-color: transparent; /* No background */
+    border-radius: 0;
+}
+
+.vendor-header .vendor-name {
+    font-weight: 600;
+    color: var(--primary-text);
+    flex-grow: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-left: 0;
+}
+
+.vendor-header .vendor-key {
+    font-size: 0.7em; /* Smaller font for key */
+    color: var(--secondary-text);
+    margin-left: 8px; /* Space for key */
+    font-family: 'monospace'; /* Monospace for key */
+    letter-spacing: 0.5px;
+}
+
+.toggle-arrow {
+    font-size: 0.7em; /* Smaller arrow */
+    color: var(--secondary-text);
+    margin-left: 8px; /* Added margin for separation */
+    transition: transform 0.1s ease-in-out;
+}
+
+/* ----------------------- Menu Category & Item List ----------------------- */
+.menu-category {
+    padding: 0; /* No padding */
+}
+.menu-content{
+    padding: 5px 0; /* Reduced padding */
+}
+.menu-category h2 {
+    font-size: 0.8em; /* Smaller category headers */
+    color: var(--accent-blue);
+    margin-top: 10px;
+    margin-bottom: 4px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    padding-bottom: 3px;
+    border-bottom: 1px solid var(--border-light); /* Thinner, lighter border */
+}
+
+.item-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    justify-content: space-between;
+}
+
+.item-list li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px 0; /* Reduced padding */
+    border-bottom: 1px dashed var(--border-light); /* Lighter dashed border */
+    margin-left: 10px;
+}
+.menu-content h3{
+    margin-left: 10px;
+    bottom: 0;
+}
+
+.item-list li:last-child {
+    border-bottom: none;
+}
+
+.item-list label {
+    flex-grow: 1;
+    margin-right: 8px; /* Reduced margin */
+    margin-left: 0; /* No margin-left */
+    font-size: 0.8em; /* Smaller font */
+    color: var(--primary-text);
+    white-space: normal;
+}
+
+.item-list input[type="checkbox"] {
+    transform: scale(0.8); /* Even smaller checkbox */
+    margin-right: 4px;
+    accent-color: var(--success-color);
+    flex-shrink: 0;
+}
+
+.item-list .price {
+    color: var(--light-blue);
+    font-weight: 600;
+    margin-left: 6px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    font-size: 0.8em; /* Smaller price font */
+}
+
+/* ----------------------- Buttons ----------------------- */
+button,
+.order-item-btn,
+.toggle-btn,
+.place-order-modal-btn,
+.conf-new-vendor-btn,
+#generated-key-modal-confirm-btn,
+#alert-ok-button,
+#confirm-yes-button,
+#confirm-no-button {
+    font-family: 'Inter', 'Segoe UI', 'Arial', sans-serif;
+    font-size: 0.7em; /* Smaller button font */
+    padding: 5px 8px; /* Reduced padding */
+    border-radius: 2px; /* Sharper edges */
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: 1px solid;
+    background-color: transparent;
+    color: var(--accent-blue); /* Default button color */
+    transition: all 0.1s ease;
+    gap: 4px; /* Reduced gap */
+    letter-spacing: 0.3px;
+    box-shadow: none; /* No shadows */
+}
+
+button:hover,
+.order-item-btn:hover,
+.toggle-btn:hover,
+.save-vendor-changes-btn:hover,
+.place-order-modal-btn:hover,
+.conf-new-vendor-btn:hover,
+#generated-key-modal-confirm-btn:hover,
+#alert-ok-button:hover,
+#confirm-yes-button:hover,
+#confirm-no-button:hover {
+    transform: none; /* No lift */
+    box-shadow: none; /* No hover shadow */
+    color: var(--background-subtle); /* Text color when hovered to be dark */
+    background-color: var(--accent-blue);
+    border-color: var(--accent-blue);
+}
+
+/* Specific Button Styles */
+.toggle-btn {
+    border-color: var(--secondary-text);
+    color: var(--secondary-text);
+}
+.toggle-btn:hover {
+    background-color: var(--secondary-text);
+    color: var(--background-subtle); /* Text color when hovered to be dark */
+    box-shadow: none;
+}
+
+#logout-btn {
+    border-color: var(--danger-color);
+    color: var(--danger-color);
+}
+#logout-btn:hover {
+    background-color: var(--danger-color);
+    color: var(--background-subtle); /* Text color when hovered to be dark */
+    box-shadow: none;
+}
+
+.save-vendor-changes-btn {
+    border-color: var(--warning-color);
+    color: var(--warning-color);
+    width: 100%;
+    display: flex;
+    text-align: center;
+    margin-top: 10px; /* Reduced margin */
+}
+.save-vendor-changes-btn:hover {
+    background-color: var(--warning-color);
+    color: var(--background-subtle); /* Text color when hovered to be dark */
+    box-shadow: none;
+}
+
+/* ----------------------- Forms & Inputs ----------------------- */
+.other-item-entry,
+.form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3px; /* Reduced gap */
+    margin-bottom: 8px; /* Reduced margin */
+    padding: 0; /* No padding */
+}
+
+.other-item-entry .other-item-price-cash,
+.other-item-price-payday {
+    display: flex;
+    gap: 10px; /* Reduced gap */
+    width: 100%;
+}
+
+.add-item-btn {
+    margin-top: 10px; /* Reduced margin */
+    margin-left: 0;
+    margin-bottom: 10px;
+    border-color: var(--success-color);
+    color: var(--success-color);
+}
+.add-item-btn:hover {
+    background-color: var(--success-color);
+    color: var(--background-subtle); /* Text color when hovered to be dark */
+    box-shadow: none;
+}
+
+.other-item-entry label,
+.form-group label {
+    font-weight: 600;
+    color: var(--primary-text);
+    font-size: 0.75em; /* Smaller label font */
+    width: 100%;
+    margin-bottom: 1px; /* Reduced margin */
+    text-align: left;
+}
+
+.underline-input,
+.select-input,
+.login-section input[type="password"] {
+    width: calc(100% - 12px); /* Adjusted width for tighter look */
+    font-size: 0.8em; /* Smaller input font */
+    padding: 5px 6px; /* Reduced padding */
+    border: 1px solid var(--border-light);
+    border-radius: 2px; /* Sharper edges */
+    background-color: var(--surface-light);
+    color: var(--primary-text);
+    font-family: 'Inter', 'Segoe UI', 'Arial', sans-serif;
+    transition: all 0.1s ease;
+}
+
+.underline-input:focus,
+.select-input:focus {
+    border-color: var(--accent-blue);
+    outline: none;
+    box-shadow: none; /* No shadow on focus */
+}
+
+.price-input {
+    width: 60px; /* More compact width */
+    font-size: 0.8em;
+    text-align: left;
+}
+
+.form-group.radio-group {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px; /* Reduced gap */
+}
+
+.form-group.radio-group label {
+    width: auto;
+    display: flex;
+    align-items: center;
+    font-size: 0.75em; /* Smaller radio label font */
+    color: var(--primary-text);
+    font-weight: 500;
+}
+
+.form-group input[type="radio"] {
+    transform: scale(0.8); /* Even smaller radio button */
+    margin-right: 4px;
+    accent-color: var(--accent-blue);
+}
+
+/* ----------------------- Buyers Container ----------------------- */
+.buyers-container {
+    position: relative; /* needed for absolute positioning inside */
+    flex-basis: 35%;
+    flex-shrink: 0;
+    flex-grow: 1;
+    background-color: transparent;
+    border-left: 1px solid var(--border-light);
+    padding-left: 10px;
+    padding-right: 0;
+    box-sizing: border-box;
+    overflow-y: auto;
+    border-radius: 0;
+    box-shadow: none;
+    border-top: none;
+    margin-top: 0;
+    opacity: 0.9;
+}
+
+.today-buyers-section h2 {
+    font-size: 0.9em; /* Smaller H2 */
+    margin-top: 6px;
+    margin-bottom: 8px;
+    color: var(--primary-text);
+    text-align: left;
+    padding-bottom: 4px;
+    width: 100%;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+}
+.today-buyers-section .section-date {
+    font-size: 0.7em; /* Smaller date font */
+    margin-top: 8px;
+    margin-bottom: 6px;
+    color: black;
+    text-align: left;
+    padding-left: 0;
+    font-weight: 600;
+}
+
+.buyers-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    text-align: left;
+}
+
+.buyers-list li {
+    padding: 3px 0; /* Reduced padding */
+    border-bottom: none;
+    font-size: 0.75em; /* Smaller font */
+    display: flex;
+    align-items: baseline;
+    margin-left: 0;
+    color: var(--primary-text);
+}
+
+.buyers-list li::before {
+    counter-increment: item;
+    color: var(--secondary-text);
+    font-size: 0.8em;
+    margin-right: 5px;
+    min-width: 18px; /* More compact */
+    text-align: right;
+    font-weight: 600;
+}
+
+#clear-buyers-btn {
+    position: absolute; /* changed from fixed */
+    bottom: 10px;
+    left: 10px;
+    border: 1px solid var(--danger-color);
+    color: var(--danger-color);
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    margin: 0;
+    width: fit-content;
+    cursor: pointer;
+    padding: 6px 12px;
+    border-radius: 5px;
+    z-index: 10;
+}
+
+#clear-buyers-btn:hover {
+    background-color: var(--danger-color);
+    color: var(--background-subtle);
+    box-shadow: none;
+}
+
+.today-buyers-section::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* ======================= Modal Specific Styles ======================= */
+
+/* --- Base Modal Styling --- */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.7); /* Slightly more opaque overlay for dark theme */
+    justify-content: center;
+    align-items: center;
+    padding: 10px; /* Reduced padding */
+    box-sizing: border-box;
+}
+
+.modal-content {
+    background-color: var(--surface-light);
+    padding: 20px; /* Reduced padding */
+    border: 1px solid var(--border-light);
+    width: 90%;
+    max-width: 300px; /* More compact max width */
+    border-radius: 4px; /* Sharper edges */
+    position: relative;
+    box-shadow: none; /* No shadow */
+    text-align: center;
+    animation-name: fadeInScale;
+    animation-duration: 0.2s; /* Faster animation */
+}
+
+@keyframes fadeInScale {
+    from { opacity: 0; transform: translateY(-10px) scale(0.98); } /* Softer animation */
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.close-button {
+    color: var(--secondary-text);
+    font-size: 18px; /* Smaller close button */
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    cursor: pointer;
+    transition: color 0.1s ease, transform 0.1s ease;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: var(--danger-color);
+    transform: rotate(45deg); /* Softer rotate */
+}
+
+/* --- Generic Alert Modal --- */
+#alertModal .modal-content {
+    max-width: 280px; /* More compact */
+}
+
+#alert-message {
+    font-size: 0.85em; /* Smaller font */
+    color: var(--primary-text);
+    margin-bottom: 15px; /* Reduced margin */
+    line-height: 1.3;
+}
+
+#alert-ok-button {
+    background-color: var(--accent-blue);
+    color: var(--background-subtle); /* Text color when hovered to be dark */
+    border: 1px solid var(--accent-blue);
+}
+#alert-ok-button:hover {
+    background-color: var(--accent-blue);
+    border-color: var(--accent-blue);
+    box-shadow: none;
+}
+
+/* --- Generic Confirm Modal --- */
+#confirmModal .modal-content {
+    max-width: 300px; /* More compact */
+}
+
+#confirm-message {
+    font-size: 0.85em; /* Smaller font */
+    color: var(--primary-text);
+    margin-bottom: 15px; /* Reduced margin */
+    line-height: 1.3;
+}
+
+.modal-actions {
+    margin-top: 10px; /* Reduced margin */
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Reduced gap */
+}
+
+#confirm-yes-button {
+    background-color: var(--success-color);
+    color: var(--background-subtle); /* Text color when hovered to be dark */
+    border: 1px solid var(--success-color);
+}
+#confirm-yes-button:hover {
+    background-color: var(--success-color);
+    border-color: var(--success-color);
+    box-shadow: none;
+}
+
+#confirm-no-button {
+    background-color: var(--danger-color);
+    color: var(--background-subtle); /* Text color when hovered to be dark */
+    border: 1px solid var(--danger-color);
+}
+#confirm-no-button:hover {
+    background-color: var(--danger-color);
+    border-color: var(--danger-color);
+    box-shadow: none;
+}
+
+/* --- New Vendor Modal --- */
+#newVendorModal .modal-content {
+    max-width: 320px; /* More compact */
+    padding: 20px;
+}
+
+#newVendorModal h2 {
+    font-size: 1em; /* Smaller H2 */
+    margin-bottom: 15px;
+    color: var(--primary-text);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+#new-vendor-form .form-group {
+    margin-bottom: 12px; /* Reduced margin */
+    padding: 0;
+}
+
+#new-vendor-form label {
+    font-size: 0.8em; /* Smaller label font */
+    margin-bottom: 3px;
+    color: var(--primary-text);
+    font-weight: 600;
+}
+
+#new-vendor-form input[type="text"],
+#new-vendor-form input[type="number"] {
+    width: calc(100% - 12px); /* Adjusted width */
+    padding: 6px 8px; /* Reduced padding */
+    font-size: 0.85em; /* Smaller input font */
+    border: 1px solid var(--border-light);
+    border-radius: 2px;
+    background-color: var(--surface-light);
+    color: var(--primary-text);
+}
+
+#new-vendor-form input[type="text"]::placeholder,
+#new-vendor-form input[type="number"]::placeholder {
+    color: var(--secondary-text);
+    opacity: 0.7;
+}
+
+#new-vendor-form .new-item-entry {
+    margin-top: 15px; /* Reduced margin */
+    margin-bottom: 12px;
+    padding: 0;
+}
+
+#new-vendor-form .new-item-payment {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px; /* Reduced gap */
+    margin-top: 8px;
+    margin-bottom: 15px;
+}
+
+#new-vendor-form .new-item-payment label {
+    font-size: 0.8em; /* Smaller label */
+    color: var(--secondary-text);
+    font-weight: 500;
+}
+
+#new-vendor-form .new-item-payment input.price-input {
+    width: 70px; /* More compact width */
+    flex-grow: 1;
+}
+
+.conf-new-vendor-btn {
+    margin-top: 15px; /* Reduced margin */
+    width: 100%;
+    padding: 8px 10px; /* Reduced padding */
+    font-size: 0.85em; /* Smaller font */
+    border: 1px solid var(--success-color);
+    color: var(--success-color);
+    background-color: transparent;
+}
+.conf-new-vendor-btn:hover {
+    background-color: var(--success-color);
+    color: var(--background-subtle); /* Text color when hovered to be dark */
+    box-shadow: none;
+}
+
+/* --- Generated Key Display Modal --- */
+#generatedKeyModal .modal-content {
+    max-width: 300px; /* More compact */
+    padding: 20px;
+}
+
+#generatedKeyModal h2 {
+    font-size: 0.95em; /* Smaller H2 */
+    margin-bottom: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--primary-text);
+    letter-spacing: 0.5px;
+}
+
+#generatedKeyModal p {
+    font-size: 0.8em; /* Smaller font */
+    color: var(--secondary-text);
+    margin-bottom: 15px;
+    line-height: 1.3;
+}
+
+.generated-key-display {
+    background-color: var(--background-subtle);
+    border: 1px dashed var(--light-blue); /* Lighter dashed border */
+    padding: 10px 12px; /* Reduced padding */
+    margin: 15px auto; /* Reduced margin */
+    font-size: 0.9em; /* Smaller font */
+    font-weight: 600;
+    color: var(--accent-blue);
+    word-break: break-all;
+    border-radius: 4px;
+    box-shadow: none; /* No shadow */
+}
+
+#generated-key-modal-confirm-btn {
+    margin-top: 20px; /* Reduced margin */
+    width: 100%;
+    padding: 8px 10px; /* Reduced padding */
+    font-size: 0.85em; /* Smaller font */
+    border: 1px solid var(--accent-blue);
+    color: var(--accent-blue);
+    background-color: transparent;
+}
+#generated-key-modal-confirm-btn:hover {
+    background-color: var(--accent-blue);
+    color: var(--background-subtle); /* Text color when hovered to be dark */
+    box-shadow: none;
+}
+
+/* --- Order Modal --- */
+#orderModal .modal-content {
+    max-width: 350px; /* More compact */
+    padding: 20px;
+}
+
+#orderModal h2 {
+    font-size: 1em; /* Smaller H2 */
+    margin-bottom: 15px;
+    color: var(--primary-text);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+#orderModal .order-summary {
+    margin-bottom: 12px; /* Reduced margin */
+    border-bottom: 1px solid var(--border-light);
+    padding-bottom: 10px;
+}
+
+#orderModal .order-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85em; /* Smaller font */
+    color: var(--primary-text);
+    margin-bottom: 5px;
+}
+#orderModal .order-item .item-name {
+    font-weight: 500;
+}
+#orderModal .order-item .item-price {
+    font-weight: 600;
+    color: var(--secondary-text);
+}
+
+#orderModal .order-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1em; /* Slightly smaller total font */
+    font-weight: 700;
+    color: var(--accent-blue);
+    margin-top: 10px; /* Reduced margin */
+    margin-bottom: 12px;
+    padding-top: 10px;
+    border-top: 1px solid var(--border-light); /* Thinner border */
+}
+
+#orderModal .form-group {
+    margin-bottom: 10px;
+    padding: 0;
+}
+
+#orderModal .form-group.display-only {
+    margin-bottom: 10px;
+}
+
+#orderModal .form-group label {
+    font-weight: 600;
+    color: var(--primary-text);
+    font-size: 0.8em; /* Smaller label font */
+    margin-bottom: 3px;
+    display: block;
+}
+
+#orderModal .form-group input[type="text"] {
+    width: calc(100% - 12px);
+    padding: 6px 8px; /* Reduced padding */
+    font-size: 0.85em; /* Smaller input font */
+    border: 1px solid var(--border-light);
+    border-radius: 2px;
+    background-color: var(--surface-light);
+    color: var(--primary-text);
+}
+
+#orderModal input[readonly] {
+    border: none !important;
+    background-color: transparent !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    font-size: 0.85em; /* Smaller readonly font */
+    color: var(--primary-text);
+    box-shadow: none !important;
+    cursor: default !important;
+    text-align: left;
+    font-weight: 600;
+    width: 100% !important;
+    box-sizing: border-box;
+}
+
+#orderModal .form-group label:has(+ .payment-method-options) {
+    margin-bottom: 6px;
+    font-size: 0.85em;
+    font-weight: 600;
+}
+
+#orderModal .payment-method-options {
+    display: flex;
+    gap: 10px; /* Reduced gap */
+    margin-bottom: 10px;
+    align-items: center;
+    padding-left: 0;
+}
+
+#orderModal .payment-method-options > div {
+    display: flex;
+    align-items: center;
+}
+
+#orderModal .payment-method-options input[type="radio"] {
+    margin-right: 6px;
+    transform: scale(0.9); /* Slightly smaller radio button */
+    accent-color: var(--accent-blue);
+}
+
+#orderModal .payment-method-options label {
+    font-size: 0.8em; /* Smaller label font */
+    line-height: 1.2;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    color: var(--primary-text);
+    font-weight: 500;
+}
+
+#orderModal .place-order-modal-btn {
+    font-size: 0.9em; /* Smaller button font */
+    padding: 10px 12px; /* Reduced padding */
+    margin-top: 0;
+    border-color: var(--accent-blue);
+    color: var(--accent-blue);
+    background-color: transparent;
+    width: 100%;
+}
+
+#orderModal .place-order-modal-btn:hover {
+    background-color: var(--accent-blue);
+    color: var(--background-subtle); /* Text color when hovered to be dark */
+    box-shadow: none;
+}
+
+/* ----------------------- Responsive / Small Width ----------------------- */
+@media (max-width: 960px){
+    body{
+        background: none;
+        background-color: black;
+    }
+    #clear-buyers-btn {
+    position: relative; /* changed from fixed */
+    top: 10px;
+    left: 0;
+    }
+}
+@media (max-width: 600px) {
+    body {
+        padding: 8px; /* Further reduced padding */
+        font-size: 0.75em; /* Even smaller base font */
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .marketplace-container {
+        flex-direction: column;
+        gap: 15px; /* Reduced gap */
+    }
+
+    .vendor-section, .buyers-container {
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .login-section {
+        padding: 5px 0; /* Further reduced padding */
+        width: 100%; /* Adjusted width */
+        margin-left: 0; /* Match body padding */
+        margin-right: 0; /* Match body padding */
+        gap: 5px;
+        border-radius: 0;
+    }
+    .login-section input[type="password"] {
+        width: 100%;
+        max-width: 80px; /* More compact */
+        font-size: 0.7em;
+        padding: 4px 5px;
+    }
+
+    .modal-content {
+        max-width: 95%;
+        width: 95%;
+        padding: 15px; /* Reduced padding */
+        border-radius: 4px;
+    }
+    .close-button {
+        font-size: 16px;
+        top: 6px;
+        right: 8px;
+    }
+
+    button, .order-item-btn, .toggle-btn, .save-vendor-changes-btn, .place-order-modal-btn,
+    .conf-new-vendor-btn, #generated-key-modal-confirm-btn, #alert-ok-button, #confirm-yes-button, #confirm-no-button {
+        font-size: 0.65em; /* Even smaller buttons */
+        padding: 4px 7px;
+    }
+    .item-list label { font-size: 0.78em; margin-left: 0; margin-right: 6px; }
+    .item-list .price { font-size: 0.75em; }
+
+    #alert-message, #confirm-message {
+        font-size: 0.8em;
+        margin-bottom: 12px;
+    }
+    .modal-actions {
+        gap: 8px;
+    }
+
+    #newVendorModal .modal-content, #generatedKeyModal .modal-content, #orderModal .modal-content {
+        width: 95%;
+        max-width: 95%;
+        padding: 15px;
+    }
+
+    #newVendorModal h2, #generatedKeyModal h2, #orderModal h2 {
+        font-size: 0.9em;
+        margin-bottom: 12px;
+    }
+
+    #new-vendor-form .new-item-payment {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+
+    #new-vendor-form .new-item-payment input.price-input {
+        width: calc(100% - 12px);
+    }
+
+    .generated-key-display {
+        font-size: 0.85em;
+        padding: 8px 10px;
+        margin: 12px auto;
+    }
+
+    #orderModal .order-total {
+        font-size: 0.9em;
+        margin-top: 6px;
+        margin-bottom: 10px;
+        padding-top: 6px;
+    }
+
+    #orderModal .form-group label {
+        font-size: 0.8em;
+    }
+
+    #orderModal .form-group input[type="text"] {
+        padding: 5px 6px;
+        font-size: 0.85em;
+    }
+
+    #orderModal .payment-method-options {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+
+    #orderModal .place-order-modal-btn {
+        padding: 8px 10px;
+        font-size: 0.85em;
+        margin-top: 10px;
+    }
+    #clear-buyers-btn {
+    position: relative; /* changed from fixed */
+    bottom: 0;
+    border: 1px solid var(--danger-color);
+    color: var(--danger-color);
+    background-color: rgb(255, 255, 255);
+    margin-top: 4px;
+    cursor: pointer;
+    border-radius: 5px;
+    z-index: 10;
+}
+}
+
+/* New media query for screens smaller than 480px */
+@media (max-width: 480px) {
+    body {
+        padding: 5px;
+        font-size: 0.7em;
+        background-color: black;
+    }
+
+    .marketplace-container {
+        gap: 10px;
+    }
+
+    header {
+        margin-bottom: 5px;
+        padding-bottom: 3px;
+    }
+
+    h1 {
+        font-size: 1.1em;
+    }
+
+    h1 .date, h1 .time {
+        font-size: 0.55em;
+        margin-left: 4px;
+    }
+
+    .login-section {
+        margin-top: 4px;
+        margin-bottom: 8px;
+        padding: 5px 0;
+        gap: 3px;
+    }
+
+    .login-section label {
+        font-size: 0.6em;
+    }
+
+    .login-section input[type="password"] {
+        max-width: 70px;
+        font-size: 0.65em;
+        padding: 3px 4px;
+    }
+
+    .vendor-header {
+        padding: 4px 0;
+        font-size: 0.8em;
+    }
+
+    .vendor-header .vendor-key {
+        font-size: 0.65em;
+        margin-left: 6px;
+    }
+
+    .toggle-arrow {
+        font-size: 0.65em;
+        margin-left: 6px;
+    }
+
+    .menu-category h2 {
+        font-size: 1em;
+        margin-top: 8px;
+        margin-bottom: 3px;
+    }
+    .other-item-entry input[type="text"] {
+        width: 77%;
+    }    
+
+    .item-list li {
+        padding: 3px 0;
+        width: auto;
+    }
+    .delete-item-btn{
+        margin-right: 100px;
+    }
+
+    .item-list label {
+        font-size: 0.75em;
+        margin-right: 5px;
+    }
+
+    .item-list input[type="checkbox"] {
+        transform: scale(0.7);
+        margin-right: 3px;
+    }
+
+    .item-list .price {
+        font-size: 0.7em;
+        margin-left: 5px;
+    }
+
+    button, .order-item-btn, .toggle-btn, .save-vendor-changes-btn, .place-order-modal-btn,
+    .conf-new-vendor-btn, #generated-key-modal-confirm-btn, #alert-ok-button, #confirm-yes-button, #confirm-no-button {
+        font-size: 0.6em;
+        padding: 3px 6px;
+        gap: 3px;
+        width: auto;
+    }
+
+    .other-item-entry, .form-group {
+        gap: 2px;
+        margin-bottom: 6px;
+    }
+
+    .other-item-entry label, .form-group label {
+        font-size: 0.7em;
+        margin-bottom: 0;
+    }
+
+    .underline-input, .select-input, .header-line input[type="password"] {
+        font-size: 0.75em;
+        padding: 4px 5px;
+        width: calc(100% - 10px);
+    }
+
+    .price-input {
+        width: 50px;
+        font-size: 1em;
+    }
+
+    .form-group.radio-group label {
+        font-size: 0.7em;
+    }
+
+    .form-group input[type="radio"] {
+        transform: scale(0.7);
+    }
+
+    .buyers-container {
+        padding-left: 10px;
+    }
+
+    .today-buyers-section h2 {
+        font-size: 0.8em;
+        margin-top: 5px;
+        margin-bottom: 6px;
+    }
+
+    .today-buyers-section .section-date {
+        font-size: 1em;
+        margin-top: 6px;
+        margin-bottom: 4px;
+    }
+
+    .buyers-list li {
+        padding: 2px 0;
+        font-size: 1em;
+    }
+
+    .buyers-list li::before {
+        font-size: 1em;
+        margin-right: 4px;
+        min-width: 16px;
+    }
+
+    #clear-buyers-btn {
+        bottom: 0;
+        left: 5px;
+        padding: 5px 10px;
+        font-size: 0.65em;
+    }
+
+    .modal-content {
+        padding: 15px;
+        max-width: 98%;
+        width: 98%;
+    }
+
+    .close-button {
+        font-size: 14px;
+        top: 5px;
+        right: 7px;
+    }
+
+    #alert-message, #confirm-message {
+        font-size: 0.75em;
+        margin-bottom: 10px;
+    }
+
+    .modal-actions {
+        margin-top: 8px;
+        gap: 6px;
+    }
+
+    #newVendorModal h2, #generatedKeyModal h2, #orderModal h2 {
+        font-size: 0.85em;
+        margin-bottom: 10px;
+    }
+
+    #new-vendor-form label {
+        font-size: 0.75em;
+    }
+
+    #new-vendor-form input[type="text"],
+    #new-vendor-form input[type="number"] {
+        padding: 5px 7px;
+        font-size: 0.8em;
+        width: calc(100% - 10px);
+    }
+
+    #new-vendor-form .new-item-payment label {
+        font-size: 0.75em;
+    }
+
+    #new-vendor-form .new-item-payment input.price-input {
+        width: calc(100% - 10px);
+    }
+
+    .conf-new-vendor-btn {
+        padding: 7px 9px;
+        font-size: 0.8em;
+    }
+
+    .generated-key-display {
+        font-size: 0.8em;
+        padding: 8px 10px;
+        margin: 10px auto;
+    }
+
+    #generated-key-modal-confirm-btn {
+        padding: 7px 9px;
+        font-size: 0.8em;
+        margin-top: 15px;
+    }
+
+    #orderModal .order-item {
+        font-size: 0.8em;
+        margin-bottom: 3px;
+    }
+
+    #orderModal .order-total {
+        font-size: 0.85em;
+        margin-top: 8px;
+        margin-bottom: 10px;
+        padding-top: 8px;
+    }
+
+    #orderModal .form-group label {
+        font-size: 0.75em;
+    }
+
+    #orderModal .form-group input[type="text"] {
+        padding: 5px 7px;
+        font-size: 0.8em;
+    }
+
+    #orderModal input[readonly] {
+        font-size: 0.8em;
+    }
+
+    #orderModal .payment-method-options input[type="radio"] {
+        transform: scale(0.8);
+        margin-right: 5px;
+    }
+
+    #orderModal .payment-method-options label {
+        font-size: 0.75em;
+    }
+
+    #orderModal .place-order-modal-btn {
+        padding: 8px 10px;
+        font-size: 0.8em;
+        margin-top: 8px;
+    }
+
+    .marketplace-tabs {
+        margin-bottom: 10px;
+        padding-bottom: 2px;
+    }
+
+    .tab-btn {
+        padding: 5px 10px;
+        font-size: 0.8em;
+    }
+
+    .item-list .is-preorder {
+        font-size: 0.7em;
+        margin-left: 4px;
+    }
+
+    .vendor-section {
+        font-size: 1em;
+    }
+    .vendor-section .vendor-buyers-list {
+        margin-top: 8px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        padding-left: 15px;
+    }
+
+    .vendor-section .vendor-buyers-list li {
+        font-size: 0.75em;
+        margin-bottom: 3px;
+    }
+}
+
+/* New media query for screens smaller than 360px */
+@media (max-width: 360px) {
+    body {
+        padding: 3px;
+        font-size: 0.65em;
+        background-color: black;
+    }
+
+    .marketplace-container {
+        gap: 8px;
+    }
+
+    header {
+        margin-bottom: 4px;
+        padding-bottom: 2px;
+    }
+
+    h1 {
+        font-size: 1em;
+    }
+
+    h1 .date, h1 .time {
+        font-size: 0.5em;
+        margin-left: 3px;
+    }
+
+    .login-section {
+        margin-top: 3px;
+        margin-bottom: 6px;
+        padding: 4px 0;
+        gap: 2px;
+    }
+
+    .login-section label {
+        font-size: 0.55em;
+    }
+
+    .login-section input[type="password"] {
+        max-width: 60px;
+        font-size: 0.6em;
+        padding: 2px 3px;
+    }
+
+    .vendor-header {
+        padding: 3px 0;
+        font-size: 1em;
+    }
+
+    .vendor-header .vendor-key {
+        font-size: 0.6em;
+        margin-left: 5px;
+    }
+
+    .toggle-arrow {
+        font-size: 0.6em;
+        margin-left: 5px;
+    }
+
+    .menu-category h2 {
+        font-size: 0.7em;
+        margin-top: 6px;
+        margin-bottom: 2px;
+    }
+
+    .item-list li {
+        padding: 2px 0;
+    }
+
+    .item-list label {
+        font-size: 0.7em;
+        margin-right: 4px;
+    }
+
+    .item-list input[type="checkbox"] {
+        transform: scale(0.65);
+        margin-right: 2px;
+    }
+
+    .item-list .price {
+        font-size: 0.65em;
+        margin-left: 4px;
+    }
+
+    button, .order-item-btn, .toggle-btn, .save-vendor-changes-btn, .place-order-modal-btn,
+    .conf-new-vendor-btn, #generated-key-modal-confirm-btn, #alert-ok-button, #confirm-yes-button, #confirm-no-button {
+        font-size: 0.55em;
+        padding: 2px 5px;
+        gap: 2px;
+    }
+
+    .other-item-entry, .form-group {
+        gap: 1px;
+        margin-bottom: 5px;
+    }
+
+    .other-item-entry label, .form-group label {
+        font-size: 0.65em;
+    }
+
+    .underline-input, .select-input, .header-line input[type="password"] {
+        font-size: 0.7em;
+        padding: 3px 4px;
+        width: calc(100% - 8px);
+    }
+
+    .price-input {
+        width: 45px;
+        font-size: 0.7em;
+    }
+
+    .form-group.radio-group label {
+        font-size: 0.65em;
+    }
+
+    .form-group input[type="radio"] {
+        transform: scale(0.65);
+    }
+
+    .buyers-container {
+        padding-left: 5px;
+    }
+
+    .today-buyers-section h2 {
+        font-size: 0.75em;
+        margin-top: 4px;
+        margin-bottom: 5px;
+    }
+
+    .today-buyers-section .section-date {
+        font-size: 0.6em;
+        margin-top: 5px;
+        margin-bottom: 3px;
+    }
+
+    .buyers-list li {
+        padding: 1px 0;
+        font-size: 0.65em;
+    }
+
+    .buyers-list li::before {
+        font-size: 0.7em;
+        margin-right: 3px;
+        min-width: 14px;
+    }
+
+    #clear-buyers-btn {
+        bottom: 3px;
+        left: 3px;
+        padding: 4px 8px;
+        font-size: 0.6em;
+    }
+
+    .modal-content {
+        padding: 10px;
+    }
+
+    .close-button {
+        font-size: 12px;
+        top: 3px;
+        right: 5px;
+    }
+
+    #alert-message, #confirm-message {
+        font-size: 0.7em;
+        margin-bottom: 8px;
+    }
+
+    .modal-actions {
+        margin-top: 6px;
+        gap: 5px;
+    }
+
+    #newVendorModal h2, #generatedKeyModal h2, #orderModal h2 {
+        font-size: 0.8em;
+        margin-bottom: 8px;
+    }
+
+    #new-vendor-form label {
+        font-size: 0.7em;
+    }
+
+    #new-vendor-form input[type="text"],
+    #new-vendor-form input[type="number"] {
+        padding: 4px 6px;
+        font-size: 0.75em;
+        width: calc(100% - 8px);
+    }
+
+    #new-vendor-form .new-item-payment label {
+        font-size: 0.7em;
+    }
+
+    #new-vendor-form .new-item-payment input.price-input {
+        width: calc(100% - 8px);
+    }
+
+    .conf-new-vendor-btn {
+        padding: 6px 8px;
+        font-size: 0.75em;
+    }
+
+    .generated-key-display {
+        font-size: 0.75em;
+        padding: 7px 9px;
+        margin: 8px auto;
+    }
+
+    #generated-key-modal-confirm-btn {
+        padding: 6px 8px;
+        font-size: 0.75em;
+        margin-top: 12px;
+    }
+
+    #orderModal .order-item {
+        font-size: 0.75em;
+        margin-bottom: 2px;
+    }
+
+    #orderModal .order-total {
+        font-size: 0.8em;
+        margin-top: 6px;
+        margin-bottom: 8px;
+        padding-top: 6px;
+    }
+
+    #orderModal .form-group label {
+        font-size: 0.7em;
+    }
+
+    #orderModal .form-group input[type="text"] {
+        padding: 4px 6px;
+        font-size: 0.75em;
+    }
+
+    #orderModal input[readonly] {
+        font-size: 0.75em;
+    }
+
+    #orderModal .payment-method-options input[type="radio"] {
+        transform: scale(0.75);
+        margin-right: 4px;
+    }
+
+    #orderModal .payment-method-options label {
+        font-size: 0.7em;
+    }
+
+    #orderModal .place-order-modal-btn {
+        padding: 7px 9px;
+        font-size: 0.75em;
+        margin-top: 6px;
+    }
+
+    .marketplace-tabs {
+        margin-bottom: 8px;
+        padding-bottom: 1px;
+    }
+
+    .tab-btn {
+        padding: 4px 8px;
+        font-size: 0.75em;
+    }
+
+    .item-list .is-preorder {
+        font-size: 0.65em;
+        margin-left: 3px;
+    }
+
+    .vendor-section .vendor-buyers-list {
+        margin-top: 6px;
+        padding-top: 6px;
+        padding-bottom: 6px;
+        padding-left: 12px;
+    }
+
+    .vendor-section .vendor-buyers-list li {
+        font-size: 0.7em;
+        margin-bottom: 2px;
+    }
+}
+
+
+/* Also add a general media query for the body for widths between 600px and the original 600px width */
+@media (min-width: 601px) {
+    body {
+        width: auto;
+        max-width: 100%;
+    }
+}
+
+/* ----------------------- Tabs ----------------------- */
+.marketplace-tabs {
+  display: flex;
+  margin-bottom: 15px; /* Reduced margin */
+  padding-bottom: 4px;
+  background-color: transparent;
+  border-radius: 0; /* No border-radius */
+  width: 50%;
+}
+
+.tab-btn {
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-bottom: 1px solid var(--border-light); /* Bottom border for visual separation */
+  padding: 6px 15px; /* Reduced padding */
+  cursor: pointer;
+  font-size: 0.85em; /* Smaller font */
+  font-weight: 600;
+  color: var(--secondary-text);
+  transition: all 0.1s ease-in-out;
+  border-radius: 0; /* No border-radius */
+  box-shadow: none;
+}
+
+.tab-btn:hover {
+  background-color: var(--background-subtle); /* Subtle hover background */
+  color: var(--primary-text);
+  transform: none; /* No lift */
+}
+
+.tab-btn.active {
+  background-color: var(--surface-light); /* Active tab has a subtle background */
+  border: 1px solid var(--border-light); /* Subtle border for active */
+  border-bottom-color: var(--surface-light); /* Hides bottom border on active */
+  color: var(--accent-blue);
+  box-shadow: none; /* No shadow */
+  transform: none;
+}
+
+/* ----------------------- Vendor/Superadmin View Specifics ----------------------- */
+.item-list .is-preorder {
+    font-style: italic;
+    color: var(--light-blue);
+    margin-left: 5px;
+    font-size: 0.75em; /* Smaller font */
+}
+
+.vendor-section .vendor-buyers-list {
+    margin-top: 10px;
+    border-top: 1px dashed var(--border-light);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    list-style-type: decimal;
+    padding-left: 18px; /* Reduced padding */
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.vendor-section .vendor-buyers-list li {
+    margin-bottom: 5px;
+    font-size: 0.8em; /* Smaller font */
+    color: var(--primary-text);
+    line-height: 1.2;
+}
+
+/* ----------------------- Scrollbar Styling ----------------------- */
+::-webkit-scrollbar {
+    width: 5px; /* Thinner scrollbar */
+    height: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--border-light); /* Lighter track */
+    border-radius: 0; /* No border-radius */
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--secondary-text);
+    border-radius: 0; /* No border-radius */
+    transition: background 0.1s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-blue);
+}
+.header-line input[type="password"] {
+    width: auto; /* Adjusted width for tighter look */
+    font-size: 0.8em; /* Smaller input font */
+    padding: 5px 6px; /* Reduced padding */
+    border: 1px solid var(--border-light);
+    border-radius: 2px; /* Sharper edges */
+    background-color: var(--surface-light);
+    color: var(--primary-text);
+    font-family: 'Inter', 'Segoe UI', 'Arial', sans-serif;
+    transition: all 0.1s ease;
+}
+#quickGuideModal .modal-content {
+    width: auto;       /* smaller width */
+    max-width: 34%;     /* responsive on small screens */
+    padding: 15px;      /* internal spacing */
+    box-sizing: border-box;
+    font-size: 14px;    /* smaller text if needed */
+    text-align: left;
+}
+#quickGuideModal {
+    position: relative;
+    left: 60vh;
+}
+
+#quickGuideModal h2{
+    top: 0;
+    text-align: center;
+    color: red;
+}

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="icons/icon128.png" type="image/png">
+<title>SOS Marketplace</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <div class="header-line"></div>
+    <div class="title-row"></div>
+    <h1>🍱 SOS MARKETPLACE <span class="date">Date:</span>
+      <span class="time">Time:</span>
+    </h1>
+    <div class="header-line">
+      <div id="login-section" class="login-section">
+        <input type="password" id="vendor-key-input" placeholder="Enter Vendor Key">
+        <button id="login-btn">Vendor Login</button>
+        <button id="logout-btn" style="display: none;">Logout</button>
+        <button id="new-vendor-btn">New Vendor</button>
+         <button id="click-guide-btn">Quick Guide</button> <!-- New Button -->
+        <button id="sold-out-btn">Sold Out</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Tabs for Now Selling / Pre-Orders -->
+  <div class="marketplace-tabs">
+    <button class="tab-btn active" data-tab="now">🍱 Now Selling</button>
+    <button class="tab-btn" data-tab="preorder">🛒 Pre-Orders</button>
+  </div>
+
+  <div class="marketplace-container">
+    <main>
+      <!-- Vendor sections will be dynamically injected here by JavaScript -->
+      <div class="header-line"></div>
+      <section class="order-form-section">
+        <span>Add new item/menu:</span>
+        <div class="other-item-entry">
+          <label for="other-item-name">Item name</label>
+          <input type="text" id="other-item-name" class="underline-input">
+        </div>
+        <div class="other-item-payment">
+          <label for="other-item-price-cash">Cash:</label>
+          <input type="number" id="other-item-price-cash" class="underline-input price-input">
+          <label for="other-item-price-payday" placeholder="₱">Payday:</label>
+          <input type="number" id="other-item-price-payday" class="underline-input price-input">
+          <!-- --- TAB FEATURE CHANGE: Added isPreOrder checkbox for adding items --- -->
+          <label for="other-item-preorder">Is Pre-Order:</label>
+          <input type="checkbox" id="other-item-preorder">
+          <button class="add-item-btn">+ Add Item</button>
+        </div>
+      </section>
+    </main>
+    <aside class="buyers-container">
+      <section class="today-buyers-section">
+        <h2>Buyer List</h2>
+        <p class="section-date"></p>
+        <ul id="buyers-list" class="buyers-list"></ul>
+      </section>
+    </aside>
+  </div>
+  <!-- Modals (unchanged) -->
+  <div id="orderModal" class="modal">
+    <div class="modal-content">
+      <span class="close-button">&times;</span>
+      <h2>Place Your Order</h2>
+      <form id="modal-order-form">
+        <div class="form-group display-only">
+          <input type="text" id="modal-order-vendor-display" readonly>
+        </div>
+        <div class="form-group display-only">
+          <input type="text" id="modal-order-item-display" readonly>
+        </div>
+        <div class="form-group">
+          <input type="text" id="modal-order-name" required placeholder="Your Name">
+        </div>
+        <div class="form-group">
+          <input type="text" id="modal-order-account" required placeholder="Your Account">
+        </div>
+        <div class="form-group">
+          <input type="text" id="modal-order-note" placeholder="Buyer Notes: E.g Spicy / Regular">
+        </div>
+        <div class="form-group">
+          <label>Payment Method:</label>
+          <div class="payment-method-options">
+            <div>
+              <input type="radio" id="modal-payment-cash" name="modal-payment-method" value="Cash" required>
+              <label for="modal-payment-cash">Cash</label>
+            </div>
+            <div>
+              <input type="radio" id="modal-payment-payday" name="modal-payment-method" value="Payday" required>
+              <label for="modal-payment-payday">Payday</label>
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="place-order-modal-btn">Confirm Order</button>
+      </form>
+    </div>
+  </div>
+  <!-- New Vendor Modal -->
+  <div id="newVendorModal" class="modal">
+    <div class="modal-content">
+      <span class="close-button">&times;</span>
+      <h2>Register New Vendor</h2>
+      <form id="new-vendor-form">
+        <div class="form-group">
+          <input type="text" id="new-vendor-full-name" required placeholder="Vendor's Full Name">
+        </div>
+        <div class="form-group">
+          <input type="text" id="new-vendor-account" required placeholder="Account">
+        </div>
+        <div class="new-item-entry">
+          <input type="text" id="new-item-name" class="underline-input" placeholder="Item Name">
+        </div>
+        <div class="new-item-payment">
+          <input type="number" id="new-item-price-cash" class="underline-input price-input" placeholder="Cash">
+          <input type="number" id="new-item-price-payday" class="underline-input price-input" placeholder="Payday">
+          <!-- --- TAB FEATURE CHANGE: Added isPreOrder checkbox for new vendor's initial item --- -->
+          <label for="new-item-preorder">Is Pre-Order:</label>
+          <input type="checkbox" id="new-item-preorder">
+          <button type="submit" class="conf-new-vendor-btn">Confirm</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Other Modals (generatedKeyModal, alertModal, confirmModal) unchanged -->
+  <div id="generatedKeyModal" class="modal">
+   <div class="modal-content">
+    <span class="close-button">&times;</span>
+    <h2>Your Unique Vendor Key</h2>
+    <!-- Changed to h3 for consistency -->
+    <p>Please save this key securely. You will need it to log in.</p>
+    <p class="generated-key-display" id="generated-vendor-key"></p>
+    <!-- MODIFIED: Changed class to 'button' for consistency -->
+    <button id="generated-key-modal-confirm-btn" class="button">Got It!</button>
+   </div>
+  </div>
+  <div id="alertModal" class="modal">
+   <div class="modal-content">
+    <span class="close-button">&times;</span>
+    <p id="alert-message"></p>
+    <button id="alert-ok-button" class="button">OK</button>
+   </div>
+  </div>
+  <!-- Generic Confirm Modal -->
+  <div id="confirmModal" class="modal">
+   <div class="modal-content">
+    <span class="close-button">&times;</span>
+    <p id="confirm-message"></p>
+    <div class="modal-actions">
+     <button id="confirm-yes-button" class="button action-button">Yes</button>
+     <button id="confirm-no-button" class="button">No</button>
+    </div>
+   </div>
+  </div>
+  <!-- Modal for Quick Guide -->
+<div id="quickGuideModal" class="modal">
+  <div class="modal-content">
+    <span class="close-button">&times;</span>
+    <h2>SOS Marketplace - Quick Guide</h2>
+    <p><strong>Buyers:</strong><br>
+      • Browse <strong>Now Selling</strong> (today) or <strong>Pre-Orders.</strong><br>
+      • Click <strong>Order</strong>, fill in <strong>Name, Account, Notes</strong>, choose <strong>Cash/Payday</strong>, and <strong>Confirm</strong>.<br>
+      • Will still be charged regardless if <strong>CLAIMED or NOT</strong> <br>
+      • Confirm via <strong>SYNO</strong> if order was acknowledged by <strong>Seller.</strong>
+    </p>
+    <p><strong>Sellers:</strong><br>
+      • Click <strong>New Vendor</strong>, register, add your first item, and save your <strong>Vendor Key</strong>.<br>
+      • Login with your key to add items (tick <strong>Pre-Order</strong> if needed).<br>
+      • Track buyers in your <strong>Buyer List</strong> and mark items <strong>Sold Out</strong> when done.<br>    <p><strong>- BE HONEST AT ALL TIMES.</strong></p>
+    </p>
+    <button id="quickGuideCloseBtn" class="button">Close</button>
+  </div>
+</div>
+  <script src="script.js"></script>
+</body>
+</html>
